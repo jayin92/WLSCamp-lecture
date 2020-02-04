@@ -1,0 +1,153 @@
+\documentclass[a4paper, twoside, openany, oldfontcommands]{memoir}
+
+\settocdepth{subsection}
+\setsecnumdepth{subsection}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\newcommand{\degre}{\ensuremath{^\circ}}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{extarrows}
+\usepackage{blindtext}
+\usepackage{fancyhdr}
+\usepackage[many]{tcolorbox}
+\usepackage{setspace}
+\usepackage{upgreek}
+\usepackage{longtable}
+\usepackage{bm}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[export]{adjustbox}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage{ulem}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black,
+}
+
+
+\usepackage[
+  top=2cm,
+  bottom=2cm,
+  left=2cm,
+  right=3cm,
+  headheight=17pt, % as per the warning by fancyhdr
+  includehead,includefoot,
+  heightrounded, % to avoid spurious underfull messages
+]{geometry} 
+
+\pagestyle{fancy}
+\fancyhf{}%clear all headers and footers
+\fancyhead[LE]{\slshape \rightmark}
+\fancyhead[RO]{\slshape \leftmark}
+\fancyhead[LO,RE]{\thepage}
+
+\setCJKmainfont{Noto Sans CJK TC Regular}
+%\setCJKmainfont{思源宋體} 
+\newCJKfontfamily\Kai{標楷體}
+\newCJKfontfamily\Song{思源宋體}
+
+\renewcommand{\contentsname}{目錄}
+\definecolor{chapter}{HTML}{05668D}
+
+
+
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\listtablename}{表目錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\let\cleardoublepage=\clearpage
+
+\tabcolsep=12pt 
+\renewcommand{\arraystretch}{1.2}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\usepackage{xcolor}
+
+\definecolor{section}{HTML}{028090}
+\definecolor{subsection}{HTML}{00A896}
+\definecolor{subsubsection}{HTML}{EA7317}
+
+%\chapterfont{\color{chapter}}
+%\sectionfont{\color{section}}
+%\subsectionfont{\color{subsection}}
+%\subsubsectionfont{\color{subsubsection}}
+
+
+
+
+\makeatletter
+\newcommand{\chapterauthor}[1]{%
+  {\parindent0pt\vspace*{-25pt}%
+  \linespread{1.1}\large\scshape#1%
+  \par\nobreak\vspace*{35pt}}
+  \@afterheading%
+}
+\makeatother
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.1}
+
+\begin{document}
+
+\tableofcontents
+\setcounter{chapter}{-1}
+\input{rabbit.tex}
+\let\cleardoublepage\clearpage
+\part{物理}
+\includepdf[scale=0.9]{partImage/part1.pdf}
+\input{physics/Pen.tex}
+\input{physics/wave.tex}
+\input{physics/quantum.tex}
+\part{生物}
+\includepdf[scale=0.9]{partImage/part2.pdf}
+\input{biology/Immune.tex}
+\input{biology/Evolution.tex}
+\input{biology/Mole-bio.tex}
+\part{化學}
+\includepdf[scale=0.9]{partImage/part3.pdf}
+\input{chemistry/Thermochemistry.tex}
+\input{chemistry/Soap.tex}
+\part{數學}
+\includepdf[scale=0.9]{partImage/part4.pdf}
+\input{math/Calculus.tex}
+\input{math/Fractal.tex}
+\input{math/Tri.tex}
+\part{資訊}
+\includepdf[scale=0.9]{partImage/part5.pdf}
+\input{informatics/latex.tex}
+\part{活動}
+\includepdf[scale=0.9]{partImage/part6.pdf}
+\input{other/worldpeace.tex}
+\input{reflection.tex}
+\chapter{營歌\\夏日沙灘遇見愛因斯坦}
+\includepdf[page={1-}, scale=0.8]{camp_song.pdf}
+	
+\end{document}
